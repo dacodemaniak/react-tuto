@@ -2,6 +2,7 @@ import './App.css';
 
 // Import our custom Component
 import HelloComponent from './components/hello/hello.component'
+import PersonComponent from './components/person/person.component'
 
 const App = () => {
   // Sets a constant
@@ -13,6 +14,8 @@ const App = () => {
         <h1>{ greeting }</h1>
       </header>
       <HelloComponent />
+
+      <PersonComponent />
     </div>
   );
 }
