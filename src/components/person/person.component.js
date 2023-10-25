@@ -2,7 +2,13 @@
  * PersonComponent
  * Display Person detail
  * @version 1.0.0 Display only firstname and lastname from a function
+ * @version 1.0.1 Display social links in an ul / li structure
+ * @version 1.0.2 Add some styles to component
+ * @see ./person.component.css
  */
+
+import './person.component.css'
+
 const PersonComponent = (props) => {
     const singlePerson = {
         firstname: 'Jean-Luc',
@@ -11,7 +17,6 @@ const PersonComponent = (props) => {
         facebook: 'https://www.facebook.com/profile.php?id=100070373165180'
     }
 
-    const linkedIn = <a href="https://www.linkedin.com/in/ideafactory31/" target="_new" title={"Profil LinkedIn de " + singlePerson.firstname + " " +  singlePerson.lastname }>LinkedIn</a>
     const formatName = (person) => <h2>{person.firstname} {person.lastname}</h2>
     const socialList = <ul>
         <li>
