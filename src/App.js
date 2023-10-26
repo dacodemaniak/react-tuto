@@ -1,21 +1,20 @@
 import './App.css';
 
+// Import fake datas
+import persons from './datas/persons.data'
+
 // Import our custom Component
-import HelloComponent from './components/hello/hello.component'
-import PersonComponent from './components/person/person.component'
+
 
 const App = () => {
   // Sets a constant
-  const greeting = 'Hello React'
+  const title = 'Address book'
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>{ greeting }</h1>
+        <h1>{ title }</h1>
       </header>
-      <HelloComponent />
-
-      <PersonComponent />
     </div>
   );
 }
