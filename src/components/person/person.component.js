@@ -15,8 +15,18 @@ const PersonComponent = (props) => {
         lastname: 'Aubert',
         gender: 'm',
         occupation: 0,
-        linkedIn: 'https://www.linkedin.com/in/ideafactory31/',
-        facebook: 'https://www.facebook.com/profile.php?id=100070373165180'
+        socials: [
+            {
+                social: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/ideafactory31/',
+            },
+            {
+                 social: 'Facebook',
+                 url: 'https://www.facebook.com/profile.php?id=100070373165180'
+            }
+           
+        ]
+
     }
 
     /**
@@ -28,19 +38,17 @@ const PersonComponent = (props) => {
         <span>{ singlePerson.gender === 'm' ? 'M.' : 'Mme'}</span> {person.firstname} {person.lastname}
     </h2>
 
-    // Complex expression
-    const socialList = <ul>
-        <li>
-            <a href={singlePerson.linkedIn} target="_new" title={`Profil de ${singlePerson.firstname} ${singlePerson.lastname}`}>
-                    LinkedIn
-            </a>
-        </li>
-        <li>
-            <a href={singlePerson.facebook} target="_new" title={`Facebook de ${singlePerson.firstname} ${singlePerson.lastname}`}>
-                    Facebook
-            </a>
-        </li>
-    </ul>
+    // Using map to generate JSX expression
+    const socialList = (person) => {
+        return <ul>
+            { person.socials.map((item) => {
+                return <li key={item.social}>
+                    <a href={item.url} target="_new" title={ `Profil ${item.social} de ${person.firstname} ${person.lastname}`}>{ item.social}</a>
+                </li>
+            })}
+        </ul>
+    }
+
 
     // For more complex condition, you may use a function
     const occupation = (person) => {
@@ -70,7 +78,7 @@ const PersonComponent = (props) => {
                 <div className="occupation">
                     { occupation(singlePerson) }
                 </div>
-                { socialList }
+                { socialList(singlePerson) }
         </div>
     </>
 }
