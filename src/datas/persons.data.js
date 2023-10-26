@@ -1,5 +1,6 @@
 const persons = [
     {
+        id: 1,
         firstname: 'Jean-Luc',
         lastname: 'Aubert',
         gender: 'm',
@@ -17,6 +18,7 @@ const persons = [
         ]
     },
     {
+        id: 2,
         firstname: 'Romain',
         lastname: 'Dubois',
         gender: 'm',
@@ -34,6 +36,7 @@ const persons = [
         ]
     },
     {
+        id: 3,
         firstname: 'Anaïs',
         lastname: 'Jobert',
         gender: 'f',
