@@ -1,5 +1,8 @@
 :root {
     --font-color: rgb(85, 76, 76);
+    --light: rgb(200, 200, 200);
+    --male: rgb(10, 10, 200);
+    --female: rgb(175, 100, 10);
 }
 
 h2 {
@@ -19,4 +22,26 @@ ul li {
 ul li a {
     color: inherit;
     text-decoration: none;
+}
+
+/**
+* Card design
+**/
+div.card {
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+}
+
+div.card .header.male {
+    background-color: var(--male);
+    color: var(--light);
+}
+
+div.card .header.female {
+    background-color: var(--female);
+}
+
+div.card .header h2 {
+    color: inherit;
 }

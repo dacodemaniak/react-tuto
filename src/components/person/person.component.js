@@ -13,11 +13,13 @@ const PersonComponent = (props) => {
     const singlePerson = {
         firstname: 'Jean-Luc',
         lastname: 'Aubert',
+        gender: 'm',
         linkedIn: 'https://www.linkedin.com/in/ideafactory31/',
         facebook: 'https://www.facebook.com/profile.php?id=100070373165180'
     }
 
     const formatName = (person) => <h2>{person.firstname} {person.lastname}</h2>
+
     const socialList = <ul>
         <li>
             <a href={singlePerson.linkedIn} target="_new" title={`Profil de ${singlePerson.firstname} ${singlePerson.lastname}`}>
@@ -30,9 +32,24 @@ const PersonComponent = (props) => {
             </a>
         </li>
     </ul>
+
+    // Sets some CSS class name in a string array
+    const classes = ['header']
+
+    if (singlePerson.gender === 'm') {
+        classes.push('male')
+    } else {
+        classes.push('female')
+    }
+
     return <>
-        { formatName(singlePerson) }
-        { socialList }
+        <div className="card">
+                <div className={ classes.join(' ')}>
+                    { formatName(singlePerson) }
+                </div>
+                
+                { socialList }
+        </div>
     </>
 }
 
