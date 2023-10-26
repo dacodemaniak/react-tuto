@@ -14,12 +14,21 @@ const PersonComponent = (props) => {
         firstname: 'Jean-Luc',
         lastname: 'Aubert',
         gender: 'm',
+        occupation: 0,
         linkedIn: 'https://www.linkedin.com/in/ideafactory31/',
         facebook: 'https://www.facebook.com/profile.php?id=100070373165180'
     }
 
-    const formatName = (person) => <h2>{person.firstname} {person.lastname}</h2>
+    /**
+     * Format name, firstname and gender from a person type
+     * @param {*} person 
+     * @returns JSX
+     */
+    const formatName = (person) => <h2>
+        <span>{ singlePerson.gender === 'm' ? 'M.' : 'Mme'}</span> {person.firstname} {person.lastname}
+    </h2>
 
+    // Complex expression
     const socialList = <ul>
         <li>
             <a href={singlePerson.linkedIn} target="_new" title={`Profil de ${singlePerson.firstname} ${singlePerson.lastname}`}>
@@ -32,6 +41,17 @@ const PersonComponent = (props) => {
             </a>
         </li>
     </ul>
+
+    // For more complex condition, you may use a function
+    const occupation = (person) => {
+        if (person.occupation === 0) {
+            return 'Teacher'
+        } else if (person.occupation === 1) {
+            return 'Student'
+        }
+
+        return 'Other'
+    }
 
     // Sets some CSS class name in a string array
     const classes = ['header']
@@ -47,7 +67,9 @@ const PersonComponent = (props) => {
                 <div className={ classes.join(' ')}>
                     { formatName(singlePerson) }
                 </div>
-                
+                <div className="occupation">
+                    { occupation(singlePerson) }
+                </div>
                 { socialList }
         </div>
     </>
