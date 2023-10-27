@@ -7,6 +7,9 @@ const RowComponent = (props) => {
         <td>{ person.firstname }</td>
         <td>{ person.lastname }</td>
         <td>{ person.email }</td>
+        <td>
+            <button type="button">x</button>
+        </td>
     </tr>
 }
 
