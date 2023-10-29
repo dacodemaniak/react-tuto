@@ -1,9 +1,14 @@
-const RowComponent = (props) => {
-    const person = props.person
+import { useRef } from "react"
+
+const RowComponent = ({person, onDelete}) => {
+
+    // Set the "ref" effect for buttons
+    const buttonRef = useRef(null)
 
     // Set the function that handle onClick event
     const onClick = () => {
-        console.log(`A button was clicked`)
+        const personId = buttonRef.current.id.substr(buttonRef.current.id.indexOf('-') + 1)
+        onDelete(personId)
     }
 
     return <tr>
@@ -13,7 +18,7 @@ const RowComponent = (props) => {
         <td>{ person.lastname }</td>
         <td>{ person.email }</td>
         <td>
-            <button type="button"
+            <button type="button" ref={buttonRef} id={`person-${person.id}`}
                 onClick={onClick}
             >x</button>
         </td>
