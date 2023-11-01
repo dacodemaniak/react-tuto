@@ -1,11 +1,11 @@
 import RowComponent from "../row/row.component"
 
-const BodyComponent = ({ persons}) => {
+const BodyComponent = ({ persons, deletePerson }) => {
     // Gets persons list from props
     // @see persons attributes from App.js
 
     const onDelete = (personId) => {
-        console.log(`Delete function was fired on ${personId}`)
+        deletePerson(personId)
     }
 
     return <tbody>
