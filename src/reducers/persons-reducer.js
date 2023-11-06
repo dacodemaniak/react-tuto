@@ -11,14 +11,11 @@ const personListSlice = createSlice({
     name: 'persons',
     initialState,
     reducers: {
-        removePerson: (state) => {
-            console.log(`Person has to be remove`)
+        removePerson: (state, action) => {
+            state.personList = state.personList.filter((person => person.id != action.payload))
         }
     }
 })
-
-// Actions destructuration
-const { removePerson } = personListSlice.actions
 
 const personsReducer = personListSlice.reducer
 
@@ -28,4 +25,8 @@ const store = configureStore({
     }
 })
 
+// Actions destructuration
+const { removePerson } = personListSlice.actions
+
 export default store
+export const remove = removePerson

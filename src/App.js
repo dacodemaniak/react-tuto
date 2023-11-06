@@ -28,7 +28,7 @@ const App = () => {
           <div className='book-list'>
             <table className='table table-striped table-condensed'>
               <HeaderComponent />
-              {/* <BodyComponent /> */} 
+              <BodyComponent /> 
             </table>
           </div>
         </div>

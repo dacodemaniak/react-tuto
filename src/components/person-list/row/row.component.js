@@ -1,14 +1,15 @@
 import { useRef } from "react"
+import { connect } from "react-redux"
+import { remove } from './../../../reducers/persons-reducer'
 
-const RowComponent = ({person, onDelete}) => {
+const RowComponent = ({person, remove}) => {
 
     // Set the "ref" effect for buttons
     const buttonRef = useRef(null)
 
     // Set the function that handle onClick event
     const onClick = () => {
-        const personId = buttonRef.current.id.substr(buttonRef.current.id.indexOf('-') + 1)
-        onDelete(personId)
+        remove(person.id)
     }
 
     return <tr>
@@ -25,4 +26,7 @@ const RowComponent = ({person, onDelete}) => {
     </tr>
 }
 
-export default RowComponent
+export default connect(
+    null,
+    { remove }
+)(RowComponent)

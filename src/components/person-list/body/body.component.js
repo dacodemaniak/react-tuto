@@ -1,15 +1,14 @@
+import { useSelector } from 'react-redux'
+
 import RowComponent from "../row/row.component"
 
-const BodyComponent = ({ persons, deletePerson }) => {
-    // Gets persons list from props
-    // @see persons attributes from App.js
-
-    const onDelete = (personId) => {
-        deletePerson(personId)
-    }
+const BodyComponent = () => {
+    const persons = useSelector((state) => {
+        return state.personList.personList
+    })
 
     return <tbody>
-       { persons.map((person) => <RowComponent key= {person.id } person={person} onDelete={onDelete} />) }
+       { persons.map((person) => <RowComponent key={ person.id } person={person} />) }
     </tbody>
 }
 
