@@ -1,14 +1,14 @@
-import { useRef } from "react"
+import personStore from "../../../reducers/person-reducer"
 
-const RowComponent = ({person, onDelete}) => {
+const RowComponent = ({ person }) => {
 
     // Set the "ref" effect for buttons
-    const buttonRef = useRef(null)
+    const onDelete = personStore((state) => state.removePerson)
 
     // Set the function that handle onClick event
     const onClick = () => {
-        const personId = buttonRef.current.id.substr(buttonRef.current.id.indexOf('-') + 1)
-        onDelete(personId)
+        console.log(`Remove ${person.id}`)
+        onDelete(person)
     }
 
     return <tr>
@@ -18,7 +18,7 @@ const RowComponent = ({person, onDelete}) => {
         <td>{ person.lastname }</td>
         <td>{ person.email }</td>
         <td>
-            <button type="button" ref={buttonRef} id={`person-${person.id}`}
+            <button type="button"
                 onClick={onClick}
             >x</button>
         </td>
