@@ -7,7 +7,6 @@ const RowComponent = ({ person }) => {
 
     // Set the function that handle onClick event
     const onClick = () => {
-        console.log(`Remove ${person.id}`)
         onDelete(person)
     }
 

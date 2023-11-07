@@ -1,11 +1,12 @@
 import { create } from 'zustand'
-import persons from './../datas/persons.data'
 
 const personStore = create((set) => ({
-    personList: persons,
+    personList: [], // Empty array will be populated later
+    // Add a setter to populate personList
+    setPersonList: (data) => set({ personList: data}),
     removePerson: (person) => set((state) => {
         return {
-                personList: state.personList.filter((personItem) => personItem.id !== person.id)
+            personList: state.personList.filter((personItem) => personItem.id !== person.id)
         }
     })
 }))
